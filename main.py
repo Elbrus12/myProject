@@ -1,10 +1,13 @@
-from win32com.client import Dispatch
-
-
-def create_shortcut(file_name: str, target: str, work_dir: str, arguments: str = ''):
-    shell = Dispatch('WScript.Shell')
-    shortcut = shell.CreateShortCut(file_name)
-    shortcut.TargetPath = target
-    shortcut.Arguments = arguments
-    shortcut.WorkingDirectory = work_dir
-    shortcut.save()
+import qrcode
+import date
+import os
+# пример данных можно отредактировать в date.py
+data = date.site
+# имя конечного файла
+filename = date.name
+# создаем директорию для сохранения
+os.chdir('qrcodes')
+# генерируем qr-код
+img = qrcode.make(data)
+# сохраняем img в файл
+img.save(filename)
