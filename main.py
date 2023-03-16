@@ -1,4 +1,6 @@
 import os
+import qrcode
+
 
 def makeQR():
     site = input('Введите точный URL-адрес или нужную вам вещь: ')  # Пишем сайт или различные вещи для QR
